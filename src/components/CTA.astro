@@ -1,0 +1,50 @@
+---
+interface Props {
+  formId?: string
+}
+
+const { formId = 'YOUR_FORM_ID' } = Astro.props
+---
+
+<section class="py-16 border-t border-[--color-border] text-center animate-fade-in-up stagger-5 opacity-0">
+  <h2 class="text-3xl md:text-4xl font-bold mb-4">
+    Don't wait for the next incident
+  </h2>
+
+  <p class="text-lg text-zinc-400 mb-8">
+    Join the waitlist and be the first to know when we launch.
+  </p>
+
+  <!-- Signup Form -->
+  <div class="max-w-md mx-auto mb-8">
+    <form
+      action={`https://formspree.io/f/${formId}`}
+      method="POST"
+      class="flex flex-col sm:flex-row gap-3"
+    >
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+        class="flex-1 px-5 py-4 text-base bg-[--color-bg-card] border border-[--color-border] rounded-xl text-white placeholder-zinc-500 transition-all"
+      />
+      <button
+        type="submit"
+        class="btn-gradient px-7 py-4 text-base font-semibold text-white rounded-xl whitespace-nowrap"
+      >
+        Get Early Access
+      </button>
+    </form>
+  </div>
+
+  <!-- Pricing Badge -->
+  <div class="inline-flex items-center gap-4 bg-[--color-bg-card] border border-[--color-border] rounded-xl px-6 py-4">
+    <div class="text-left">
+      <div class="text-sm text-zinc-400">Free tier available. Paid plans from</div>
+      <div class="text-2xl font-bold">
+        $29<span class="text-sm font-normal text-zinc-500">/month</span>
+      </div>
+    </div>
+  </div>
+</section>
